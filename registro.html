@@ -6,16 +6,15 @@
 	<title></title>
 	<link rel="stylesheet" href="css/main.css"/>
 </head>
-<body>
-	
+<body>	
 
 	<form id="form_nuevo_usuario">
 
-		<input id="dato_nombre_usuario"  type="text" placeholder="nombre usuario">
-		<input id="dato_edad_usuario" type="number"  placeholder="dato_edad_usuario">
+		<input id="dato_nombre_usuario"  type="text" placeholder="nombre usuario" onchange="validar_nombre_usuario(this.value)">
+		<input id="dato_edad_usuario" type="number"  placeholder="dato_edad_usuario" onchange="validar_edad_usuario(this.value)" >
 		<!--<input id="dato_edad_usuario" type="number" min="1900"  max="2021" placeholder="dato_edad_usuario">-->
 
-		<input id="dato_contrasena" type="password" placeholder="contarseña" >
+		<input id="dato_contrasena" type="password" placeholder="contraseña" onchange="validar_contrasena(this.value)" >
 		<button id="enviar_registro" type="submit">enviar registro</button>
 		
 
@@ -23,7 +22,7 @@
 		
 	</form>
 
-	<script src="./formulario.js"></script>	
+	<script src="./validaciones.js"></script>	
 
 </body>
 </html>

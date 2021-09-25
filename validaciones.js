@@ -1,44 +1,47 @@
 //FORMULARIO
+//const dato_nombre_usuario= document.getElementById ("dato_nombre_usuario");
+//const dato_edad_usuario= document.getElementById ("dato_edad_usuario");
+//const dato_contrasena= document.getElementById ("dato_contrasena");
+//const form_nuevo_usuario =document.getElementById("form_nuevo_usuario");
 
-const dato_nombre_usuario= document.getElementById ("dato_nombre_usuario");
-const dato_edad_usuario= document.getElementById ("dato_edad_usuario");
-const dato_contrasena= document.getElementById ("dato_contrasena");
-const form_nuevo_usuario =document.getElementById("form_nuevo_usuario");
-
-const warnings =document.getElementById("warnings");
-
-
+//const warnings =document.getElementById("warnings");
+/*
 form_nuevo_usuario.addEventListener("submit", e=>{
     var edad = parseInt(dato_edad_usuario.value);    
     let es_edad_valida= validar_edad_usuario(edad);
     let es_contrasena_valida=validar_contrasena(dato_contrasena.value);
     let es_nombre_valido=validar_nombre_usuario(dato_nombre_usuario.value);
     return false;
-})
+})*/
 
 
 function validar_nombre_usuario(nombre){
+        
+    let ultimaletra=nombre[nombre.length-1];
+    debugger
+    var esMayuscula=nombre[0].match(/[A-Z]/)// si la primera letra es mayuscula
+    var tieneEspaciosInicio=nombre[0].match(/\s/)// si el nombre tiene espacios
+    var tieneEspaciosFinal=ultimaletra.match(/\s/)// si el nombre tiene espacios
 
-    var valida= nombre.match(/^[A-Za-z0-9_.]+$/)
-   debugger
-    if (valida!=null & contrasena.length>=6) {
-        alert("nombre_usuario valido")
+    if (esMayuscula!=null && tieneEspaciosInicio==null && tieneEspaciosFinal==null ){
+        alert("empieza mayuscula y no tiene espacios AL PRINCIPIO NI AL FINAL" );
         return true;
-    }else{
-        alert("nombre_usuario no valido")
-        return false;
+        }else{
+            alert("tiene espacios y/o empieza minuscula");
+            return false;
+        }
+   
 
-    }
+    //let formatoCorrecto = str.charAt(0).toUpperCase()  == str.charAt(0)&& str.slice(-1) == ".";
+
+    
 }
 
 
-
-
-
 function validar_contrasena(contrasena){
-
-    var valida= contrasena.match(/^[A-Za-z0-9]+$/)
-   debugger
+    
+    var valida= contrasena.match(/^[A-Za-z0-9]+$/) 
+        
     if (valida!=null & contrasena.length>=6) {
         alert("contrasena valida")
         return true;
@@ -50,13 +53,14 @@ function validar_contrasena(contrasena){
 }
 
 function validar_edad_usuario(edad){
+    
 
     if(isNaN(edad)){ // edad no es un numero
         return false;
 
     }else{// edad es un numero porque isNaN salió falsa 
         if (edad > 0) { //edad es positiva
-            if ((edad >= 13) & (edad < 110)) {
+            if ((edad >= 13) && (edad < 110)) {
                 alert("EDAD valida");
                 return true; //edad esta en el rango
             } else {
@@ -70,7 +74,11 @@ function validar_edad_usuario(edad){
         }
     }
 }
+/*
 
+module.exports.validar_nombre_usuario=validar_nombre_usuario;
+module.exports.validar_contrasena=validar_contrasena;
+module.exports.validar_edad_usuario=validar_edad_usuario;*/
 
 
 /*(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|
