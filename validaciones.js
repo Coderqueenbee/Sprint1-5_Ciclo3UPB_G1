@@ -18,20 +18,35 @@ form_nuevo_usuario.addEventListener("submit", e=>{
 function validar_nombre_usuario(nombre){
         
     let ultimaletra=nombre[nombre.length-1];
-    debugger
-    var esMayuscula=nombre[0].match(/[A-Z]/)// si la primera letra es mayuscula
-    var tieneEspaciosInicio=nombre[0].match(/\s/)// si el nombre tiene espacios
     var tieneEspaciosFinal=ultimaletra.match(/\s/)// si el nombre tiene espacios
 
-    if (esMayuscula!=null && tieneEspaciosInicio==null && tieneEspaciosFinal==null ){
-        alert("empieza mayuscula y no tiene espacios AL PRINCIPIO NI AL FINAL" );
-        return true;
+         //The split() method splits a string into an array of substrings, and returns the new array.
+         //If an empty string ("") is used as the separator, the string is split between each character
+    const myArr = nombre.split(" ");
+    let validado= 0;
+
+    for (let i = 0; i < myArr.length; i++) {
+            
+            let esMayusculaPrimeraLetraPalabra_n= myArr[i][0].match(/[A-Z]/);
+            let tieneEspaciosInicioPalabra=myArr[i][0].match(/\s/);
+
+            if (esMayusculaPrimeraLetraPalabra_n!=null && tieneEspaciosInicioPalabra==null && tieneEspaciosFinal==null ){
+                alert("primera letra de la primera palabra es mayuscula no termina en espacio y no tiene espacios inicio"+  myArr[i]); 
+                validado=validado+1;               
+                }else{
+                    alert("primera letra de la primera palabra es empieza minuscula+"+myArr[i]);
+                    validado=0;
+                }
+        }
+        if (validado==myArr.length){
+            alert("valido");
+            return true;
+            
         }else{
-            alert("tiene espacios y/o empieza minuscula");
+            alert("no valido");
             return false;
         }
-   
-
+        
     //let formatoCorrecto = str.charAt(0).toUpperCase()  == str.charAt(0)&& str.slice(-1) == ".";
 
     
@@ -41,7 +56,6 @@ function validar_nombre_usuario(nombre){
 function validar_contrasena(contrasena){
     
     var valida= contrasena.match(/^[A-Za-z0-9]+$/) 
-        
     if (valida!=null & contrasena.length>=6) {
         alert("contrasena valida")
         return true;
@@ -53,7 +67,6 @@ function validar_contrasena(contrasena){
 }
 
 function validar_edad_usuario(edad){
-    
 
     if(isNaN(edad)){ // edad no es un numero
         return false;
