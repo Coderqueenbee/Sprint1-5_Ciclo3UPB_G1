@@ -87,47 +87,27 @@ function validar_edad_usuario(edad){
         }
     }
 }
-/*
+
 
 module.exports.validar_nombre_usuario=validar_nombre_usuario;
 module.exports.validar_contrasena=validar_contrasena;
-module.exports.validar_edad_usuario=validar_edad_usuario;*/
+module.exports.validar_edad_usuario=validar_edad_usuario;
 
 
-/*(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|
-    \\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|
-    \[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:
-    (?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
-            function limita(maximoCaracteres) {
-                var elemento = document.getElementById("texto")
-                if(elemento.value.length >= maximoCaracteres) {
-                    console.log("los datos son mayores")
-                    alert("Error")
-                    return false;
+/*
+function limita(maximoCaracteres) {
+    var elemento = document.getElementById("texto")
+        if(elemento.value.length >= maximoCaracteres) {
+            console.log("los datos son mayores")
+                alert("Error")
+                return false;
                 }
                 else
-                 {
+                {
                     console.log("los datos estan correctos..") 
                     alert("Valido")
                     return true;  
-                 }
+                }
             }
-    </script> 
-</head>
-<body>
-    <form>
-        <input type="text" name="txt1" id="texto" onkeypress="return limita(5);">
-    </form>
     
-</body>
-</html>
 */
