@@ -16,6 +16,11 @@ form_nuevo_usuario.addEventListener("submit", e=>{
 
 
 function agregarRegistro(){
+
+
+    let registros=[];
+
+
     let dato_nombre_usuario= document.getElementById ("dato_nombre_usuario");
     let dato_edad_usuario= document.getElementById ("dato_edad_usuario");
     let dato_contrasena= document.getElementById ("dato_contrasena");
@@ -26,6 +31,12 @@ function agregarRegistro(){
 
     if (nombreUsuarioValido && edadValida && contrasenaValida){
         alert("Datos validos");
+
+        let dato= {
+            edad: dato_edad_usuario.value,
+            nombre:dato_nombre_usuario.value,
+            contrasena:dato_contrasena.value
+        } 
 
     
     } else{
