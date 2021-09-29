@@ -19,8 +19,6 @@ function agregarRegistro(){
 
 
     let registros=[];
-
-
     let dato_nombre_usuario= document.getElementById ("dato_nombre_usuario");
     let dato_edad_usuario= document.getElementById ("dato_edad_usuario");
     let dato_contrasena= document.getElementById ("dato_contrasena");
@@ -37,8 +35,9 @@ function agregarRegistro(){
             nombre:dato_nombre_usuario.value,
             contrasena:dato_contrasena.value
         } 
+        registros.push(dato);
+        console.log(registros);
 
-    
     } else{
         
         alert("Datos NO validos");}
