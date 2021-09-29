@@ -43,14 +43,12 @@ function agregarRegistro(){
         alert("Datos NO validos");}
 }
 
-
 function ordenarArreglo(registro){
 
     registros.sort((a,b) => (a.edad > b.edad) ? 1 : ((b.edad > a.edad) ? -1 : 0))
     console.log(registros);
-
 }
-
+//
 function validar_nombre_usuario(nombre){
         
     let ultimaletra=nombre[nombre.length-1];
@@ -114,7 +112,7 @@ function validar_edad_usuario(edad){
         if (edad > 0) { //edad es positiva
             if ((edad >= 13) && (edad < 110)) {
                 alert("EDAD valida");
-               
+            
                 return true; //edad esta en el rango
             } else {
                 alert("EDAD NO valida");
