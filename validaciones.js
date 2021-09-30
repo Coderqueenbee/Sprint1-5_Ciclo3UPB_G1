@@ -15,10 +15,11 @@ form_nuevo_usuario.addEventListener("submit", e=>{
 })*/
 
 
+let registros=[];
+
 function agregarRegistro(){
 
-
-    let registros=[];
+    
     let dato_nombre_usuario= document.getElementById ("dato_nombre_usuario");
     let dato_edad_usuario= document.getElementById ("dato_edad_usuario");
     let dato_contrasena= document.getElementById ("dato_contrasena");
@@ -28,7 +29,7 @@ function agregarRegistro(){
     let contrasenaValida=validar_contrasena(dato_contrasena.value);
 
     if (nombreUsuarioValido && edadValida && contrasenaValida){
-        alert("Datos validos");
+        //alert("Datos validos");
 
         let dato= {
             edad: dato_edad_usuario.value,
@@ -36,19 +37,53 @@ function agregarRegistro(){
             contrasena:dato_contrasena.value
         } 
         registros.push(dato);
-        console.log(registros);
+       console.log(registros);
+  //OrdenarArreglo(registros)
 
-    } else{
+    } //else{
         
-        alert("Datos NO validos");}
+       // alert("Datos NO validos");}
 }
 
-function ordenarArreglo(registro){
+function OrdenarArreglo(registros){
 
     registros.sort((a,b) => (a.edad > b.edad) ? 1 : ((b.edad > a.edad) ? -1 : 0))
     console.log(registros);
+    return registros;
 }
-//
+
+function validar_nombre_usuario(nombre){
+
+    if (nombre!=undefined){
+        
+    let ultimaletra=nombre[nombre.length-1];
+    
+    var esMayuscula=nombre[0].match(/[A-Z]/)// si la primera letra es mayuscula
+    var tieneEspaciosInicio=nombre[0].match(/\s/)// si el nombre tiene espacios
+    var tieneEspaciosFinal=ultimaletra.match(/\s/)// si el nombre tiene espacios
+
+    if (esMayuscula!=null && tieneEspaciosInicio==null && tieneEspaciosFinal==null ){
+        //alert("empieza mayuscula y no tiene espacios AL PRINCIPIO NI AL FINAL" );
+        return true;
+        }else{
+            //alert("tiene espacios y/o empieza minuscula");
+            return false;
+        }
+   
+
+    //let formatoCorrecto = str.charAt(0).toUpperCase()  == str.charAt(0)&& str.slice(-1) == ".";
+    }else{
+        return false;
+    }
+    
+}
+
+
+
+
+
+
+/*
 function validar_nombre_usuario(nombre){
         
     let ultimaletra=nombre[nombre.length-1];
@@ -74,30 +109,30 @@ function validar_nombre_usuario(nombre){
                 }
         }
         if (validado==myArr.length){
-            alert("valido");
+            //alert("valido");
             return true;
             
         }else{
-            alert("no valido");
+          //  alert("no valido");
             return false;
         }
         
     //let formatoCorrecto = str.charAt(0).toUpperCase()  == str.charAt(0)&& str.slice(-1) == ".";
 
     
-}
+}*/
 
 
 function validar_contrasena(contrasena){
     
     var valida= contrasena.match(/^[A-Za-z0-9]+$/) 
-    if (valida!=null & contrasena.length>=6) {
-        alert("contrasena valida")
+    if (valida!=undefined && contrasena!=undefined && contrasena.length>=6) {
+      //  alert("contrasena valida")
         
         return true;
         
     }else{
-        alert("contrasena no valida")
+        //alert("contrasena no valida")
         return false;
 
     }
@@ -111,11 +146,11 @@ function validar_edad_usuario(edad){
     }else{// edad es un numero porque isNaN salió falsa 
         if (edad > 0) { //edad es positiva
             if ((edad >= 13) && (edad < 110)) {
-                alert("EDAD valida");
+              //  alert("EDAD valida");
             
                 return true; //edad esta en el rango
             } else {
-                alert("EDAD NO valida");
+                //alert("EDAD NO valida");
                 return false;// edad no esta en el rango
             }
         } else {
@@ -125,27 +160,11 @@ function validar_edad_usuario(edad){
         }
     }
 }
-/*
+module.exports.registros=registros;
 module.exports.agregarRegistro=agregarRegistro;
+module.exports.OrdenarArreglo=OrdenarArreglo;
 module.exports.validar_nombre_usuario=validar_nombre_usuario;
 module.exports.validar_contrasena=validar_contrasena;
-module.exports.validar_edad_usuario=validar_edad_usuario;*/
+module.exports.validar_edad_usuario=validar_edad_usuario;
 
 
-/*
-function limita(maximoCaracteres) {
-    var elemento = document.getElementById("texto")
-        if(elemento.value.length >= maximoCaracteres) {
-            console.log("los datos son mayores")
-                alert("Error")
-                return false;
-                }
-                else
-                {
-                    console.log("los datos estan correctos..") 
-                    alert("Valido")
-                    return true;  
-                }
-            }
-    
-*/
