@@ -33,7 +33,7 @@ function agregarRegistro(){
 
         let dato= {
             edad: dato_edad_usuario.value,
-            nombre:dato_nombre_usuario.value,
+            usuario:dato_nombre_usuario.value,
             contrasena:dato_contrasena.value
         } 
         registros.push(dato);
@@ -45,11 +45,11 @@ function agregarRegistro(){
        // alert("Datos NO validos");}
 }
 
-function OrdenarArreglo(registros){
+function OrdenarArreglo(arreglo){
 
-    registros.sort((a,b) => (a.edad > b.edad) ? 1 : ((b.edad > a.edad) ? -1 : 0))
-    console.log(registros);
-    return registros;
+    arreglo.sort((a,b) => (a.edad > b.edad) ? 1 : ((b.edad > a.edad) ? -1 : 0))
+    console.log(arreglo);
+    return arreglo;
 }
 
 function validar_nombre_usuario(nombre){
