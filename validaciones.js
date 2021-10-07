@@ -19,29 +19,26 @@ let registros=[];
 
 function agregarRegistro(){
 
-    
+
     let dato_nombre_usuario= document.getElementById ("dato_nombre_usuario");
     let dato_edad_usuario= document.getElementById ("dato_edad_usuario");
     let dato_contrasena= document.getElementById ("dato_contrasena");
-
     let nombreUsuarioValido=validar_nombre_usuario(dato_nombre_usuario.value);
     let edadValida=validar_edad_usuario(dato_edad_usuario.value);
     let contrasenaValida=validar_contrasena(dato_contrasena.value);
 
     if (nombreUsuarioValido && edadValida && contrasenaValida){
         //alert("Datos validos");
-
         let dato= {
             edad: dato_edad_usuario.value,
             usuario:dato_nombre_usuario.value,
             contrasena:dato_contrasena.value
         } 
         registros.push(dato);
-       console.log(registros);
-  //OrdenarArreglo(registros)
+    console.log(registros);
+    OrdenarArreglo(registros)
 
     } //else{
-        
        // alert("Datos NO validos");}
 }
 
@@ -52,12 +49,12 @@ function OrdenarArreglo(arreglo){
     return arreglo;
 }
 
+
+
 function validar_nombre_usuario(nombre){
 
     if (nombre!=undefined){
-        
     let ultimaletra=nombre[nombre.length-1];
-    
     var esMayuscula=nombre[0].match(/[A-Z]/)// si la primera letra es mayuscula
     var tieneEspaciosInicio=nombre[0].match(/\s/)// si el nombre tiene espacios
     var tieneEspaciosFinal=ultimaletra.match(/\s/)// si el nombre tiene espacios
@@ -69,8 +66,6 @@ function validar_nombre_usuario(nombre){
             //alert("tiene espacios y/o empieza minuscula");
             return false;
         }
-   
-
     //let formatoCorrecto = str.charAt(0).toUpperCase()  == str.charAt(0)&& str.slice(-1) == ".";
     }else{
         return false;
